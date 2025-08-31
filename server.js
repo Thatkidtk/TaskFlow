@@ -13,7 +13,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-const db = new sqlite3.Database('./taskflow.db');
+const dbPath = process.env.DATABASE_PATH || path.join(__dirname, 'taskflow.db');
+const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (

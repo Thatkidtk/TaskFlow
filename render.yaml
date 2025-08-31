@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: taskflow
+    env: node
+    region: oregon
+    plan: free
+    rootDir: .
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        # Set this in the Render dashboard; not stored in repo
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/taskflow.db
+    disks:
+      - name: data
+        mountPath: /var/data
+        sizeGB: 1
