@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Multi-Group Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="auth-section" class="auth-container">
+            <div class="auth-card">
+                <h1>TaskFlow</h1>
+                <div id="login-form" class="auth-form">
+                    <h2>Login</h2>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button id="login-btn" class="btn btn-primary">Login</button>
+                    <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+                </div>
+                <div id="register-form" class="auth-form hidden">
+                    <h2>Register</h2>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <button id="register-btn" class="btn btn-primary">Register</button>
+                    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-section" class="main-container hidden">
+            <header class="header">
+                <h1>TaskFlow</h1>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </header>
+
+            <nav class="sidebar">
+                <div class="sidebar-section">
+                    <div class="section-header">
+                        <h3>Groups</h3>
+                        <button id="add-group-btn" class="btn btn-small">+</button>
+                    </div>
+                    <div id="groups-list" class="groups-list"></div>
+                </div>
+            </nav>
+
+            <main class="content">
+                <div id="welcome-screen" class="welcome">
+                    <h2>Welcome to TaskFlow</h2>
+                    <p>Create groups to manage tasks for your team members or family.</p>
+                    <button id="create-first-group" class="btn btn-primary">Create Your First Group</button>
+                </div>
+
+                <div id="group-view" class="group-container hidden">
+                    <div class="group-header">
+                        <h2 id="current-group-name">Group Name</h2>
+                        <button id="delete-group-btn" class="btn btn-danger">Delete Group</button>
+                    </div>
+
+                    <div class="members-section">
+                        <div class="section-header">
+                            <h3>Members</h3>
+                            <button id="add-member-btn" class="btn btn-small">+ Add Member</button>
+                        </div>
+                        <div id="members-list" class="members-grid"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
